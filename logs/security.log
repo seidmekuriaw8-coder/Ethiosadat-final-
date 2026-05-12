@@ -15067,3 +15067,4 @@ RuntimeError: Database insert failed — check server logs for details
     raise RuntimeError('Database insert failed — check server logs for details')
 RuntimeError: Database insert failed — check server logs for details
 
+2026-05-12 10:37:38,305 - app - WARNING - 404 Error: http://127.0.0.1:5000/favicon.ico
