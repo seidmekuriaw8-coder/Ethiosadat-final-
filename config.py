@@ -14,12 +14,11 @@ class Config:
     # FLASK APP CONFIGURATION
     # ============================================================
     
-    # Security — must be set via SECRET_KEY environment variable.
-    # A random key is generated at startup if not set (sessions won't persist across restarts).
-    SECRET_KEY = os.environ.get('SECRET_KEY', '')
+    # Security — በምስሉ ላይ በሰጠኸው መረጃ መሰረት ተስተካክሏል
+    SECRET_KEY = os.environ.get('SECRET_KEY', '@99Nameallah')
     
     # Debug mode - Enable for development, disable for production
-    DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+    DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
     
     # Host and Port configuration
     HOST = os.environ.get('HOST', '0.0.0.0')
@@ -75,8 +74,8 @@ class Config:
     # DATABASE CONFIGURATION
     # ============================================================
     
-    # PostgreSQL connection string — set via DATABASE_URL environment variable.
-    DATABASE_URL = os.environ.get('DATABASE_URL', '')
+    # PostgreSQL connection string — በሰጠኸው ፓስዎርድ እና ፖርት ተስተካክሏል
+    DATABASE_URL = os.environ.get('DATABASE_URL', 'postgresql://postgres:admin123@localhost:5432/ethiosadat_db')
 
     # Kept for backwards-compatibility (no longer used for SQLite)
     DATABASE_PATH = os.environ.get('DATABASE_PATH', 'database/ethiosadat.db')
@@ -215,7 +214,7 @@ class Config:
             os.makedirs(log_dir, exist_ok=True)
         
         # Apply security settings
-        if not cls.DEBUG:
+        if app is not None and not cls.DEBUG:
             app.config.update(
                 SESSION_COOKIE_SECURE=cls.SESSION_COOKIE_SECURE,
                 SESSION_COOKIE_HTTPONLY=cls.SESSION_COOKIE_HTTPONLY,
@@ -328,7 +327,8 @@ class ProductionConfig(Config):
         if not cls.SECRET_KEY or cls.SECRET_KEY == 'ethiosadat_default_secret_key_2026':
             import secrets
             cls.SECRET_KEY = secrets.token_hex(32)
-            app.logger.warning("Using auto-generated SECRET_KEY. Set a permanent key in production!")
+            if app:
+                app.logger.warning("Using auto-generated SECRET_KEY. Set a permanent key in production!")
 
 
 class TestingConfig(Config):
