@@ -15035,3 +15035,35 @@ LINE 1: SELECT p.name_am as name, c.name_am as category,
 LINE 1: SELECT p.name_am as name, c.name_am as category,
                                   ^
 
+2026-05-12 08:37:37,954 - app - WARNING - 404 Error: http://10.226.243.182:5000/favicon.ico
+2026-05-12 08:37:43,979 - app - WARNING - Failed admin login attempt for email: admin@ethiosadat.com from 10.226.243.182
+2026-05-12 08:37:43,980 - app - WARNING - Slow request: POST /login - 1.42s
+2026-05-12 08:38:08,065 - app - WARNING - Failed admin login attempt for email: admin@ethiosadat.com from 10.226.243.182
+2026-05-12 08:38:08,067 - app - WARNING - Slow request: POST /login - 1.40s
+2026-05-12 08:38:14,512 - app - WARNING - Failed admin login attempt for email: admin@ethiosadat.com from 10.226.243.182
+2026-05-12 08:38:14,513 - app - WARNING - Slow request: POST /login - 1.37s
+2026-05-12 08:40:46,976 - app - WARNING - 404 Error: http://127.0.0.1:5000/favicon.ico
+2026-05-12 08:41:28,744 - app - WARNING - Slow request: POST /login - 1.39s
+2026-05-12 08:44:07,787 - app - WARNING - 404 Error: http://10.226.243.182:5000/favicon.ico
+2026-05-12 08:44:16,011 - app - WARNING - Failed admin login attempt for email: admin@ethiosadat.com from 10.226.243.202
+2026-05-12 08:44:16,012 - app - WARNING - Slow request: POST /login - 1.23s
+2026-05-12 08:44:32,962 - app - WARNING - Slow request: POST /login - 1.25s
+2026-05-12 08:47:20,414 - app - ERROR - Error creating product: Database insert failed — check server logs for details
+2026-05-12 08:47:20,434 - app - ERROR - Traceback (most recent call last):
+  File "C:\Users\USER\Downloads\Ethiosadat-final- (4)\Ethiosadat-final-\app.py", line 3126, in admin_product_create
+    raise RuntimeError('Database insert failed — check server logs for details')
+RuntimeError: Database insert failed — check server logs for details
+
+2026-05-12 08:49:19,471 - app - WARNING - 404 Error: http://10.226.243.182:5000/favicon.ico
+2026-05-12 08:49:29,965 - app - WARNING - Failed admin login attempt for email: admin@ethiosadat.com from 10.226.243.202
+2026-05-12 08:49:29,966 - app - WARNING - Slow request: POST /login - 1.38s
+2026-05-12 08:49:44,041 - app - WARNING - Slow request: POST /login - 1.22s
+2026-05-12 08:58:31,278 - app - WARNING - 404 Error: http://127.0.0.1:5000/.well-known/appspecific/com.chrome.devtools.json
+2026-05-12 10:00:54,393 - app - WARNING - 404 Error: http://10.226.243.182:5000/favicon.ico
+2026-05-12 10:01:11,235 - app - WARNING - Slow request: POST /login - 1.58s
+2026-05-12 10:03:48,879 - app - ERROR - Error creating product: Database insert failed — check server logs for details
+2026-05-12 10:03:49,057 - app - ERROR - Traceback (most recent call last):
+  File "C:\Users\USER\Downloads\Ethiosadat-final- (4)\Ethiosadat-final-\app.py", line 3126, in admin_product_create
+    raise RuntimeError('Database insert failed — check server logs for details')
+RuntimeError: Database insert failed — check server logs for details
+

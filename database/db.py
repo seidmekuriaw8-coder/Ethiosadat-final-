@@ -8,17 +8,11 @@ import psycopg2
 import psycopg2.extras
 from flask import g
 
-DATABASE_URL = os.environ.get('DATABASE_URL')
-
+# በፎቶው ላይ ባለው መረጃ መሰረት የተስተካከለ ዳታቤዝ URL
+DATABASE_URL = os.environ.get('DATABASE_URL', 'postgresql://postgres:admin123@localhost:5432/ethiosadat_db')
 
 class _PsycopgCursor:
-    """Wraps a psycopg2 DictCursor to provide a sqlite3-compatible cursor API.
-
-    Key compatibilities provided:
-    - Translates ``?`` placeholders to ``%s`` automatically.
-    - ``row[0]`` and ``row['column']`` both work (DictCursor behaviour).
-    - ``cursor.lastrowid`` is populated after INSERT … RETURNING id.
-    """
+    """Wraps a psycopg2 DictCursor to provide a sqlite3-compatible cursor API."""
 
     def __init__(self, real_cursor):
         self._c = real_cursor
@@ -30,6 +24,15 @@ class _PsycopgCursor:
             self._c.execute(q, params)
         else:
             self._c.execute(q)
+        
+        # INSERT ከሆነ lastrowid ን ለመያዝ (PostgreSQL RETURNING id ያስፈልገዋል)
+        if "RETURNING id" in q.upper() or "INSERT" in q.upper():
+            try:
+                row = self._c.fetchone()
+                if row:
+                    self._lastrowid = row[0]
+            except:
+                pass
         return self
 
     def executemany(self, query, params_list):
@@ -64,13 +67,7 @@ class _PsycopgCursor:
 
 
 class _PsycopgConn:
-    """Wraps a psycopg2 connection to provide a sqlite3-compatible connection API.
-
-    - ``conn.execute(query, params)`` works like sqlite3's shortcut.
-    - ``conn.row_factory = sqlite3.Row`` is silently ignored (DictCursor
-      already provides dict-like row access).
-    - ``conn.cursor()`` returns a _PsycopgCursor.
-    """
+    """Wraps a psycopg2 connection to provide a sqlite3-compatible connection API."""
 
     def __init__(self, raw_conn):
         self._conn = raw_conn
@@ -101,20 +98,31 @@ class _PsycopgConn:
 
 
 def _raw_connect():
-    """Open a raw psycopg2 connection with DictCursor as the default factory."""
-    return psycopg2.connect(
-        DATABASE_URL,
-        cursor_factory=psycopg2.extras.DictCursor
-    )
+    """Open a raw psycopg2 connection. በምስሉ ላይ ባለው መረጃ መሰረት ተስተካክሏል።"""
+    try:
+        return psycopg2.connect(
+            dbname="ethiosadat_db",
+            user="postgres",
+            password="admin123", # image_fe2601.png ላይ በሰጠኸው መረጃ መሰረት
+            host="localhost",
+            port="5432",
+            cursor_factory=psycopg2.extras.DictCursor
+        )
+    except Exception as e:
+        # ካልሰራ በ URL ለመሞከር
+        return psycopg2.connect(
+            DATABASE_URL,
+            cursor_factory=psycopg2.extras.DictCursor
+        )
 
 
 def get_db():
-    """Return the per-request wrapped database connection (cached on ``g``)."""
+    """Return the per-request wrapped database connection (cached on g)."""
     try:
         if 'db' not in g:
             g.db = _PsycopgConn(_raw_connect())
         return g.db
-    except RuntimeError:
+    except (RuntimeError, Exception):
         return _PsycopgConn(_raw_connect())
 
 
@@ -133,6 +141,7 @@ def init_db():
     conn = _raw_connect()
     cur = conn.cursor()
 
+    # Tables Creation
     cur.execute("""
         CREATE TABLE IF NOT EXISTS users (
             id SERIAL PRIMARY KEY,
@@ -311,6 +320,7 @@ def init_db():
         )
     """)
 
+    # Indexes
     cur.execute("CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_id)")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_products_featured ON products(is_featured)")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_products_active ON products(is_active)")
@@ -320,6 +330,7 @@ def init_db():
     cur.execute("CREATE INDEX IF NOT EXISTS idx_users_email ON users(email)")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_cart_user ON cart_items(user_id)")
 
+    # Seed Default Data
     cur.execute("SELECT COUNT(*) FROM categories")
     if cur.fetchone()[0] == 0:
         defaults = [
@@ -331,7 +342,7 @@ def init_db():
             ('ሌላ', 'Other', 'آخر', '📦', 6),
         ]
         cur.executemany(
-            "INSERT INTO categories (name, name_am, name_ar, icon, sort_order) VALUES (%s, %s, %s, %s, %s)",
+            "INSERT INTO categories (name_am, name, name_ar, icon, sort_order) VALUES (%s, %s, %s, %s, %s)",
             defaults
         )
         print(f"✅ Seeded {len(defaults)} default categories")
@@ -360,10 +371,7 @@ def init_db():
             ('currency', 'ETB'),
             ('default_language', 'am'),
         ]
-        cur.executemany(
-            "INSERT INTO settings (key, value) VALUES (%s, %s)",
-            default_settings
-        )
+        cur.executemany("INSERT INTO settings (key, value) VALUES (%s, %s)", default_settings)
 
     cur.execute("SELECT COUNT(*) FROM branches")
     if cur.fetchone()[0] == 0:

@@ -54761,3 +54761,136 @@ LINE 1: SELECT p.name_am as name, c.name_am as category,
 2026-05-12 06:47:37,891 - app - INFO - ==================================================
 2026-05-12 06:47:37,892 - app - INFO - Ethiosadat Application Started
 2026-05-12 06:47:37,893 - app - INFO - ==================================================
+2026-05-12 07:57:11,466 - app - INFO - ==================================================
+2026-05-12 07:57:11,467 - app - INFO - Ethiosadat Application Started
+2026-05-12 07:57:11,467 - app - INFO - ==================================================
+2026-05-12 08:12:15,985 - app - INFO - ==================================================
+2026-05-12 08:12:15,986 - app - INFO - Ethiosadat Application Started
+2026-05-12 08:12:15,986 - app - INFO - ==================================================
+2026-05-12 08:13:35,229 - app - INFO - ==================================================
+2026-05-12 08:13:35,230 - app - INFO - Ethiosadat Application Started
+2026-05-12 08:13:35,230 - app - INFO - ==================================================
+2026-05-12 08:27:09,825 - app - INFO - ==================================================
+2026-05-12 08:27:09,825 - app - INFO - Ethiosadat Application Started
+2026-05-12 08:27:09,825 - app - INFO - ==================================================
+2026-05-12 08:36:31,911 - app - INFO - ==================================================
+2026-05-12 08:36:31,912 - app - INFO - Ethiosadat Application Started
+2026-05-12 08:36:31,912 - app - INFO - ==================================================
+2026-05-12 08:37:24,631 - app - INFO - Home page - Featured: 0, New: 0, Ads: 0
+2026-05-12 08:37:37,954 - app - WARNING - 404 Error: http://10.226.243.182:5000/favicon.ico
+2026-05-12 08:37:43,979 - app - WARNING - Failed admin login attempt for email: admin@ethiosadat.com from 10.226.243.182
+2026-05-12 08:37:43,980 - app - WARNING - Slow request: POST /login - 1.42s
+2026-05-12 08:38:08,065 - app - WARNING - Failed admin login attempt for email: admin@ethiosadat.com from 10.226.243.182
+2026-05-12 08:38:08,067 - app - WARNING - Slow request: POST /login - 1.40s
+2026-05-12 08:38:14,512 - app - WARNING - Failed admin login attempt for email: admin@ethiosadat.com from 10.226.243.182
+2026-05-12 08:38:14,513 - app - WARNING - Slow request: POST /login - 1.37s
+2026-05-12 08:38:28,974 - app - INFO - Home page - Featured: 0, New: 0, Ads: 0
+2026-05-12 08:38:33,061 - app - INFO - Home page - Featured: 0, New: 0, Ads: 0
+2026-05-12 08:38:33,441 - app - INFO - Home page - Featured: 0, New: 0, Ads: 0
+2026-05-12 08:38:33,957 - app - INFO - Home page - Featured: 0, New: 0, Ads: 0
+2026-05-12 08:38:44,238 - app - INFO - Cart viewed - Items: 0, Total: 200 ETB
+2026-05-12 08:38:46,810 - app - INFO - Home page - Featured: 0, New: 0, Ads: 0
+2026-05-12 08:38:46,965 - app - INFO - Home page - Featured: 0, New: 0, Ads: 0
+2026-05-12 08:38:47,115 - app - INFO - Home page - Featured: 0, New: 0, Ads: 0
+2026-05-12 08:38:47,583 - app - INFO - Home page - Featured: 0, New: 0, Ads: 0
+2026-05-12 08:40:46,976 - app - WARNING - 404 Error: http://127.0.0.1:5000/favicon.ico
+2026-05-12 08:41:28,743 - app - INFO - Admin logged in: admin@ethiosadat.com
+2026-05-12 08:41:28,744 - app - WARNING - Slow request: POST /login - 1.39s
+2026-05-12 08:41:28,888 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:41:29,840 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:41:29,916 - app - INFO - Admin reports viewed
+2026-05-12 08:41:37,570 - app - INFO - Admin reports viewed
+2026-05-12 08:42:17,110 - app - INFO - Admin already logged in, redirecting to dashboard
+2026-05-12 08:42:17,262 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:42:17,559 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:42:17,582 - app - INFO - Admin reports viewed
+2026-05-12 08:42:30,802 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:42:30,808 - app - INFO - Admin reports viewed
+2026-05-12 08:43:17,800 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:43:17,821 - app - INFO - Admin reports viewed
+2026-05-12 08:43:30,787 - app - INFO - Admin reports viewed
+2026-05-12 08:43:30,788 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:44:07,787 - app - WARNING - 404 Error: http://10.226.243.182:5000/favicon.ico
+2026-05-12 08:44:16,011 - app - WARNING - Failed admin login attempt for email: admin@ethiosadat.com from 10.226.243.202
+2026-05-12 08:44:16,012 - app - WARNING - Slow request: POST /login - 1.23s
+2026-05-12 08:44:17,804 - app - INFO - Admin reports viewed
+2026-05-12 08:44:17,817 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:44:30,798 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:44:30,811 - app - INFO - Admin reports viewed
+2026-05-12 08:44:32,961 - app - INFO - Admin logged in: admin@ethiosadat.com
+2026-05-12 08:44:32,962 - app - WARNING - Slow request: POST /login - 1.25s
+2026-05-12 08:44:33,179 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:44:33,464 - app - INFO - Admin reports viewed
+2026-05-12 08:44:33,466 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:44:46,514 - app - INFO - Admin product list viewed - 0 products
+2026-05-12 08:44:46,852 - app - INFO - Admin product list viewed - 0 products
+2026-05-12 08:45:17,809 - app - INFO - Admin reports viewed
+2026-05-12 08:45:17,827 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:45:30,783 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:45:30,783 - app - INFO - Admin reports viewed
+2026-05-12 08:46:17,769 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:46:17,770 - app - INFO - Admin reports viewed
+2026-05-12 08:46:30,759 - app - INFO - Admin reports viewed
+2026-05-12 08:46:30,777 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:47:17,761 - app - INFO - Admin reports viewed
+2026-05-12 08:47:17,872 - app - INFO - Admin dashboard accessed - Products: 0, Orders: 0
+2026-05-12 08:47:20,414 - app - ERROR - Error creating product: Database insert failed — check server logs for details
+2026-05-12 08:47:20,434 - app - ERROR - Traceback (most recent call last):
+  File "C:\Users\USER\Downloads\Ethiosadat-final- (4)\Ethiosadat-final-\app.py", line 3126, in admin_product_create
+    raise RuntimeError('Database insert failed — check server logs for details')
+RuntimeError: Database insert failed — check server logs for details
+
+2026-05-12 08:47:30,790 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:47:30,790 - app - INFO - Admin reports viewed
+2026-05-12 08:48:17,781 - app - INFO - Admin reports viewed
+2026-05-12 08:48:17,794 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:48:44,816 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:48:44,905 - app - INFO - Admin reports viewed
+2026-05-12 08:49:14,271 - app - INFO - Admin reports viewed
+2026-05-12 08:49:19,471 - app - WARNING - 404 Error: http://10.226.243.182:5000/favicon.ico
+2026-05-12 08:49:29,844 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:49:29,882 - app - INFO - Admin reports viewed
+2026-05-12 08:49:29,965 - app - WARNING - Failed admin login attempt for email: admin@ethiosadat.com from 10.226.243.202
+2026-05-12 08:49:29,966 - app - WARNING - Slow request: POST /login - 1.38s
+2026-05-12 08:49:44,040 - app - INFO - Admin logged in: admin@ethiosadat.com
+2026-05-12 08:49:44,041 - app - WARNING - Slow request: POST /login - 1.22s
+2026-05-12 08:49:44,125 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:49:44,836 - app - INFO - Admin reports viewed
+2026-05-12 08:49:44,907 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:49:44,998 - app - INFO - Admin reports viewed
+2026-05-12 08:49:45,015 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:49:48,695 - app - INFO - Admin already logged in, redirecting to dashboard
+2026-05-12 08:49:48,794 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:49:48,999 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:49:49,043 - app - INFO - Admin reports viewed
+2026-05-12 08:50:29,869 - app - INFO - Admin reports viewed
+2026-05-12 08:50:29,890 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:50:44,824 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:50:44,826 - app - INFO - Admin reports viewed
+2026-05-12 08:51:44,826 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:51:44,826 - app - INFO - Admin reports viewed
+2026-05-12 08:52:44,838 - app - INFO - Admin reports viewed
+2026-05-12 08:52:44,839 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:53:44,817 - app - INFO - Admin reports viewed
+2026-05-12 08:53:44,825 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:54:44,791 - app - INFO - Admin reports viewed
+2026-05-12 08:54:44,813 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:55:44,807 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 08:55:44,827 - app - INFO - Admin reports viewed
+2026-05-12 08:56:08,662 - app - INFO - Admin product list viewed - 1 products
+2026-05-12 08:58:31,278 - app - WARNING - 404 Error: http://127.0.0.1:5000/.well-known/appspecific/com.chrome.devtools.json
+2026-05-12 10:00:50,769 - app - INFO - ==================================================
+2026-05-12 10:00:50,802 - app - INFO - Ethiosadat Application Started
+2026-05-12 10:00:50,803 - app - INFO - ==================================================
+2026-05-12 10:00:54,393 - app - WARNING - 404 Error: http://10.226.243.182:5000/favicon.ico
+2026-05-12 10:01:11,212 - app - INFO - Admin logged in: admin@ethiosadat.com
+2026-05-12 10:01:11,235 - app - WARNING - Slow request: POST /login - 1.58s
+2026-05-12 10:01:11,736 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 10:01:29,454 - app - INFO - Admin dashboard accessed - Products: 1, Orders: 0
+2026-05-12 10:01:29,573 - app - INFO - Admin reports viewed
+2026-05-12 10:03:48,879 - app - ERROR - Error creating product: Database insert failed — check server logs for details
+2026-05-12 10:03:49,057 - app - ERROR - Traceback (most recent call last):
+  File "C:\Users\USER\Downloads\Ethiosadat-final- (4)\Ethiosadat-final-\app.py", line 3126, in admin_product_create
+    raise RuntimeError('Database insert failed — check server logs for details')
+RuntimeError: Database insert failed — check server logs for details
+
