@@ -227,6 +227,8 @@ def inject_globals():
         'app_name': 'Ethiosadat Furniture',
         'pending_orders_count': pending_orders_count,
         'low_stock_count': low_stock_count,
+        'is_discount_user': session.get('user_id') is not None,
+        'discount_message': 'የ 10% ቅናሽ ተጠቃሚ ነዎት! / You are a 10% discount user!' if session.get('user_id') else '',
     }
 
 
@@ -1722,12 +1724,13 @@ def user_register():
             cursor.execute("""
                 INSERT INTO users (username, full_name, email, phone, password_hash, is_admin, is_active, created_at)
                 VALUES (?, ?, ?, ?, ?, 0, 1, CURRENT_TIMESTAMP)
-                RETURNING id
             """, (username, full_name, email, phone, password_hash))
-            
-            row = cursor.fetchone()
             conn.commit()
-            user_id = row['id'] if row else None
+            
+            # Get the user_id from the new user (fetch from database)
+            cursor.execute("SELECT id FROM users WHERE email = ?", (email,))
+            user_row = cursor.fetchone()
+            user_id = user_row['id'] if user_row else None
             
             # Auto login
             session['user_id'] = user_id
@@ -1791,7 +1794,6 @@ def user_profile():
     
     try:
         conn = get_db()
-        conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM users WHERE id = ?", (session['user_id'],))
         user = cursor.fetchone()
@@ -2571,18 +2573,16 @@ def checkout():
         flash('Your cart is empty', 'warning')
         return redirect(url_for('view_cart'))
     
-    # Calculate totals — 10% discount applies only to Android App users
-    android_user = is_android_app()
-    discount_message = ''
-    if android_user:
-        discount_message = 'Congratulations! You have received a 10% discount for being a registered user on our Android App.'
+    # Calculate totals — 10% discount applies to all registered users
+    discount_message = 'የ 10% ቅናሽ ተጠቃሚ ነዎት! / You are a 10% discount user!'
 
     subtotal = 0
     items_list = []
     for item in cart_items:
         price = item['price'] if item['price'] else 0
         quantity = item['quantity'] if item['quantity'] else 1
-        discounted_price = price * 0.9 if android_user else price
+        # Apply 10% discount to all registered users
+        discounted_price = price * 0.9
         item_subtotal = discounted_price * quantity
         subtotal += item_subtotal
         items_list.append({
@@ -2593,7 +2593,7 @@ def checkout():
             'price': discounted_price
         })
 
-    discount = subtotal * 0.1 if android_user else 0
+    discount = subtotal * 0.1
     subtotal_after_discount = subtotal - discount
     
     free_shipping_threshold = int(os.environ.get('FREE_SHIPPING_THRESHOLD', '5000'))
@@ -2620,7 +2620,7 @@ def checkout():
                 flash('Please fill in shipping address and phone number', 'error')
                 return redirect(url_for('checkout'))
             
-            # Create order
+            # Create order with discount applied to all registered users
             order_id = create_order(
                 user_id=session['user_id'],
                 items=items_list,
@@ -2663,7 +2663,7 @@ def checkout():
                            shipping_cost=shipping_cost,
                            total=round(total, 2),
                            free_shipping_threshold=free_shipping_threshold,
-                           android_discount=android_user,
+                           android_discount=True,
                            discount_message=discount_message,
                            user=dict(user) if user else None,
                            lang=lang,
