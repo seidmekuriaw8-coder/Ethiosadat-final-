@@ -95,7 +95,7 @@ def dashboard():
     cursor.execute("SELECT SUM(total) FROM orders WHERE status != 'cancelled'")
     total_revenue = cursor.fetchone()[0] or 0
     
-    cursor.execute("SELECT COUNT(*) FROM orders WHERE date(created_at) = date('now')")
+    cursor.execute("SELECT COUNT(*) FROM orders WHERE DATE(created_at) = CURRENT_DATE")
     today_orders = cursor.fetchone()[0] or 0
     
     # Get recent orders
@@ -554,10 +554,10 @@ def reports():
     
     # Get sales by day (last 7 days)
     cursor.execute("""
-        SELECT date(created_at) as day, COUNT(*) as count, SUM(total) as revenue
+        SELECT DATE(created_at) as day, COUNT(*) as count, SUM(total) as revenue
         FROM orders
-        WHERE created_at >= date('now', '-7 days')
-        GROUP BY date(created_at)
+        WHERE created_at >= CURRENT_DATE - INTERVAL '7 days'
+        GROUP BY DATE(created_at)
         ORDER BY day DESC
     """)
     sales_by_day = cursor.fetchall()

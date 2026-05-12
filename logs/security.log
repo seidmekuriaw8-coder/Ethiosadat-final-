@@ -15011,3 +15011,27 @@ LINE 3:             AND (end_date IS NULL OR end_date > datetime('no...
 HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
 
 
+2026-05-12 03:41:20,997 - app - ERROR - Error loading products report: column "c.name" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT p.*, c.name as category_name,
+                    ^
+
+2026-05-12 03:41:22,000 - app - ERROR - Error loading products report: column "c.name" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT p.*, c.name as category_name,
+                    ^
+
+2026-05-12 03:41:26,096 - app - ERROR - Error loading sales report: column "c.name_am" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT p.name_am as name, c.name_am as category,
+                                  ^
+
+2026-05-12 03:41:26,545 - app - ERROR - Error loading sales report: column "c.name_am" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT p.name_am as name, c.name_am as category,
+                                  ^
+
+2026-05-12 03:41:30,525 - app - ERROR - Error loading sales report: column "c.name_am" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT p.name_am as name, c.name_am as category,
+                                  ^
+
+2026-05-12 03:41:31,643 - app - ERROR - Error loading sales report: column "c.name_am" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT p.name_am as name, c.name_am as category,
+                                  ^
+
